@@ -6,3 +6,51 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100hv;
+    background: rgb(65, 229, 224);
+}
+
+.sortable-list {
+    background-color: #fff;
+    width: 445px;
+    padding: 30px 25px 20px;
+    border-radius: 6px;
+}
+
+.sortable-list .item {
+    list-style: none;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 11px;
+    padding: 10px 13px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item .details {
+    display: flex;
+    align-items: center;
+}
+
+.item .details img {
+    width: 43px;
+    height: 43px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.item .details span {
+    font-size: 1.13rem;
+}
+
+.item i {
+    color: #474747;
+    font-size: 1.13rem;
+}
+
