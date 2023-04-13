@@ -1,4 +1,6 @@
-const items = document.querySelectorAll(".item");
+const sortableList = document.querySelector(".sortable-list");
+const items = sortableList.querySelectorAll(".item");
+
 
 items.forEach((item) => {
     item.addEventListener("dragstart" , ()=> {
@@ -10,3 +12,20 @@ items.forEach((item) => {
     })
 })
 
+
+const initSortableList = (e) => {
+    e.preventDefault();
+    // Getting the currrent dragging li element
+    const draggingItem = sortableList.querySelector(".dragging");
+    // Getting all items except currently dragging and making array of them
+    const siblings = [...sortableList.querySelectorAll(".item:not(.dragging)")];
+    // Finding the sibling after which the dragging item should be placed
+    let nextSibling = siblings.find(sibling => {
+        // The clientY read-only property of the MouseEvent interface provides the vertical coordinate within the application's viewport at which the event occurred (as opposed to the coordinate within the page).
+        return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
+    });
+    // Inserting the dragging item before the found sibling
+    sortableList.insertBefore(draggingItem, nextSibling);
+}
+
+sortableList.addEventListener("dragover", initSortableList);
